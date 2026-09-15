@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLASSORA — Premium E-Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar glass" id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="logo-icon">G</div>
+            <span class="logo-text">GLASSORA</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">হোম</a></li>
+            <li><a href="#categories">ক্যাটাগরি</a></li>
+            <li><a href="#products">প্রোডাক্ট</a></li>
+            <li><a href="#deals">ডিলস</a></li>
+            <li><a href="#newsletter">নিউজলেটার</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="nav-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="প্রোডাক্ট খুঁজুন..." id="searchInput" oninput="handleSearch()">
+            </div>
+            <button class="nav-icon-btn" onclick="toggleCart()" aria-label="Cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge" id="cartBadge">0</span>
+            </button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-badge"><span class="pulse"></span> নতুন কালেকশন ২০২৫</div>
+                <h1>প্রিমিয়াম <span class="gradient-text">Glassmorphism</span> শপিং এক্সপেরিয়েন্স</h1>
+                <p>বাংলাদেশের সবচেয়ে আধুনিক ই-কমার্স প্ল্যাটফর্ম। সেরা ব্র্যান্ড, সেরা দাম, সেরা ডেলিভারি।</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('products')"><i class="fas fa-shopping-bag"></i> এখনই কিনুন</button>
+                    <button class="btn btn-glass" onclick="scrollToSection('categories')"><i class="fas fa-compass"></i> ঘাটাঘাটি করুন</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><div class="stat-number">50K+</div><div class="stat-label">প্রোডাক্ট</div></div>
+                    <div class="stat-item"><div class="stat-number">2M+</div><div class="stat-label">কাস্টমার</div></div>
+                    <div class="stat-item"><div class="stat-number">4.9★</div><div class="stat-label">রেটিং</div></div>
+                    <div class="stat-item"><div class="stat-number">64</div><div class="stat-label">জেলায় ডেলিভারি</div></div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-card-stack">
+                    <div class="floating-product fp1"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=500&fit=crop" alt="Watch"><div class="fp-price">৳12,999</div></div>
+                    <div class="floating-product fp2"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=500&fit=crop" alt="Perfume"><div class="fp-price">৳3,499</div></div>
+                    <div class="floating-product fp3"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=500&fit=crop" alt="Sneakers"><div class="fp-price">৳8,799</div></div>
+                    <div class="floating-product fp4"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=500&fit=crop" alt="Headphones"><div class="fp-price">৳4,999</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ CATEGORIES ═══════════ -->
+    <section class="section" id="categories">
+        <div class="section-header">
+            <div class="tag">ক্যাটাগরি</div>
+            <h2>জনপ্রিয় <span class="highlight">ক্যাটাগরি</span></h2>
+            <p>আপনার পছন্দের প্রোডাক্ট খুঁজে নিন</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card glass" onclick="filterProducts('electronics')"><div class="category-icon" style="background:rgba(102,126,234,.15);color:#667eea"><i class="fas fa-laptop"></i></div><h3>ইলেকট্রনিক্স</h3><span>২,৫০০+ প্রোডাক্ট</span></div>
+            <div class="category-card glass" onclick="filterProducts('fashion')"><div class="category-icon" style="background:rgba(240,147,251,.15);color:#f093fb"><i class="fas fa-tshirt"></i></div><h3>ফ্যাশন</h3><span>৫,০০০+ প্রোডাক্ট</span></div>
+            <div class="category-card glass" onclick="filterProducts('beauty')"><div class="category-icon" style="background:rgba(245,87,108,.15);color:#f5576c"><i class="fas fa-spa"></i></div><h3>বিউটি</h3><span>১,৮০০+ প্রোডাক্ট</span></div>
+            <div class="category-card glass" onclick="filterProducts('home')"><div class="category-icon" style="background:rgba(16,185,129,.15);color:#10b981"><i class="fas fa-couch"></i></div><h3>হোম লিভিং</h3><span>৩,২০০+ প্রোডাক্ট</span></div>
+            <div class="category-card glass" onclick="filterProducts('sports')"><div class="category-icon" style="background:rgba(0,210,255,.15);color:#00d2ff"><i class="fas fa-dumbbell"></i></div><h3>স্পোর্টস</h3><span>১,৫০০+ প্রোডাক্ট</span></div>
+            <div class="category-card glass" onclick="filterProducts('all')"><div class="category-icon" style="background:rgba(255,215,0,.15);color:#ffd700"><i class="fas fa-th-large"></i></div><h3>সব কিছু</h3><span>৫০,০০০+ প্রোডাক্ট</span></div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FLASH SALE ═══════════ -->
+    <div class="flash-sale-banner">
+        <div class="flash-banner-inner glass">
+            <div class="flash-left">
+                <div class="flash-icon">⚡</div>
+                <div class="flash-text">
+                    <h3>ফ্ল্যাশ সেল — ৬০% পর্যন্ত ছাড়!</h3>
+                    <p>সীমিত সময়ের জন্য সেরা ডিলস</p>
+                </div>
+            </div>
+            <div class="countdown">
+                <div class="countdown-item"><span class="num" id="hours">06</span><span class="label">ঘন্টা</span></div>
+                <div class="countdown-item"><span class="num" id="minutes">26</span><span class="label">মিনিট</span></div>
+                <div class="countdown-item"><span class="num" id="seconds">22</span><span class="label">সেকেন্ড</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ PRODUCTS ═══════════ -->
+    <section class="section" id="products">
+        <div class="section-header">
+            <div class="tag">ট্রেন্ডিং</div>
+            <h2>সেরা <span class="highlight">প্রোডাক্টসমূহ</span></h2>
+            <p>আমাদের হাতে বাছাই করা সেরা প্রোডাক্ট</p>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- ═══════════ DEALS ═══════════ -->
+    <section class="deals-section" id="deals">
+        <div class="section-header">
+            <div class="tag">বিশেষ অফার</div>
+            <h2>এক্সক্লুসিভ <span class="highlight">ডিলস</span></h2>
+        </div>
+        <div class="deals-grid">
+            <div class="deal-card deal-1 glass">
+                <div class="deal-tag">নতুন কাস্টমারদের জন্য</div>
+                <h3>ফার্সট অর্ডার ডিসকাউন্ট</h3>
+                <p>প্রথম অর্ডারে এক্সট্রা ২০০ টাকা ছাড়। কুপন কোড ব্যবহার করো!</p>
+                <div class="deal-discount">৳200 OFF</div>
+            </div>
+            <div class="deal-card deal-2 glass">
+                <div class="deal-tag">ফ্রি ডেলিভারি</div>
+                <h3>সারাদেশে ফ্রি শিপিং</h3>
+                <p>৳1000 এর বেশি অর্ডারে সম্পূর্ণ বিনামূল্যে হোম ডেলিভারি!</p>
+                <div class="deal-discount">FREE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FEATURES ═══════════ -->
+    <section class="features-section" id="features">
+        <div class="section-header">
+            <div class="tag">আমাদের সুবিধা</div>
+            <h2>কেন <span class="highlight">GLASSORA</span> বাছবেন?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card glass"><div class="feature-icon" style="background:rgba(102,126,234,.15);color:#667eea"><i class="fas fa-truck"></i></div><h4>দ্রুত ডেলিভারি</h4><p>ঢাকায় ২৪ ঘন্টা, সারাদেশে ৩-৫ দিনে</p></div>
+            <div class="feature-card glass"><div class="feature-icon" style="background:rgba(16,185,129,.15);color:#10b981"><i class="fas fa-shield-alt"></i></div><h4>১০০% নিরাপদ</h4><p>অরিজিনাল প্রোডাক্ট গ্যারান্টি</p></div>
+            <div class="feature-card glass"><div class="feature-icon" style="background:rgba(255,215,0,.15);color:#ffd700"><i class="fas fa-undo-alt"></i></div><h4>ইজি রিটার্ন</h4><p>৭ দিনের রিটার্ন পলিসি</p></div>
+            <div class="feature-card glass"><div class="feature-icon" style="background:rgba(240,147,251,.15);color:#f093fb"><i class="fas fa-headset"></i></div><h4>২৪/৭ সাপোর্ট</h4><p>সর্বদা আপনার পাশে</p></div>
+        </div>
+    </section>
+
+    <!-- ═══════════ NEWSLETTER ═══════════ -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="newsletter-card glass">
+            <h2>নিউজলেটার <span class="highlight">সাবস্ক্রাইব</span></h2>
+            <p>সর্বশেষ অফার ও নতুন প্রোডাক্ট আপডেট পেতে সাবস্ক্রাইব করো!</p>
+            <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                <input type="email" placeholder="আপনার ইমেইল লিখুন" required>
+                <button type="submit">সাবস্ক্রাইব</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">GLASSORA</div>
+                <p>বাংলাদেশের সবচেয়ে আধুনিক ও বিশ্বস্ত ই-কমার্স প্ল্যাটফর্ম। ২০২১ সাল থেকে ২ মিলিয়নের বেশি গ্রাহককে সেবা দিয়ে যাচ্ছি।</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col"><h4>কোম্পানি</h4><ul><li><a href="#">আমাদের সম্পর্কে</a></li><li><a href="#">ক্যারিয়ার</a></li><li><a href="#">ব্লগ</a></li><li><a href="#">প্রেস</a></li></ul></div>
+            <div class="footer-col"><h4>সহায়তা</h4><ul><li><a href="#">সাহায্য কেন্দ্র</a></li><li><a href="#">রিটার্ন নীতি</a></li><li><a href="#">শিপিং তথ্য</a></li><li><a href="#">যোগাযোগ</a></li></ul></div>
+            <div class="footer-col"><h4>পলিসি</h4><ul><li><a href="#">প্রাইভেসি</a></li><li><a href="#">টার্মস</a></li><li><a href="#">রিফান্ড</a></li><li><a href="#">কুকি</a></li></ul></div>
+            <div class="footer-col"><h4>যোগাযোগ</h4><ul><li><a href="tel:+8801712345678"><i class="fas fa-phone"></i> +৮৮০ ১৭১২-৩৪৫৬৭৮</a></li><li><a href="mailto:support@glassora.com"><i class="fas fa-envelope"></i> support@glassora.com</a></li><li><a href="#"><i class="fas fa-map-marker-alt"></i> ঢাকা, বাংলাদেশ</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>© ২০২৫ GLASSORA. সর্বস্বত্ব সংরক্ষিত।</p>
+            <div class="payment-icons">
+                <div class="payment-icon">VISA</div>
+                <div class="payment-icon">MC</div>
+                <div class="payment-icon">bkash</div>
+                <div class="payment-icon">Nagad</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════ CART SIDEBAR ═══════════ -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar glass" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> আপনার কার্ট</h3>
+            <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>আপনার কার্ট খালি!</p>
+                <span>প্রোডাক্ট যোগ করুন</span>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>মোট মূল্য:</span>
+                <strong id="cartTotal">৳0</strong>
+            </div>
+            <button class="btn-checkout" onclick="checkout()"><i class="fas fa-lock"></i> চেকআউট করুন</button>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewOverlay" onclick="closeQuickView()"></div>
+    <div class="modal glass" id="quickViewModal">
+        <button class="modal-close" onclick="closeQuickView()"><i class="fas fa-times"></i></button>
+        <div class="modal-content" id="quickViewContent"></div>
+    </div>
+
+    <!-- ═══════════ NOTIFICATION + SCROLL TOP ═══════════ -->
+    <div class="notification" id="notification"><i class="fas fa-check-circle"></i><span id="notifMsg">প্রোডাক্ট কার্টে যোগ হয়েছে!</span></div>
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
